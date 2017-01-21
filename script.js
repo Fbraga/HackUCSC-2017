@@ -17,4 +17,7 @@ function myMap() {
           title: 'Hello World!'
   });  
 }
+function addMarker() {
+    prompt("Add Latitude and Longitude Coords");
+}
 
