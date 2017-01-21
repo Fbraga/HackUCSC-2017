@@ -1,0 +1,22 @@
+{
+  "name": "u_see_santa_cruz",
+  "version": "0.0.0",
+  "description": "HACK UCSC 2017 Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fbraga/HackUCSC-2017.git"
+  },
+  "author": "",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/Fbraga/HackUCSC-2017/issues"
+  },
+  "homepage": "https://github.com/Fbraga/HackUCSC-2017#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
