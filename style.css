@@ -1,0 +1,19 @@
+
+.page-header{
+
+}
+.jumbotron{
+    background-color:#ffdf00;
+    color:black;
+    max-height: 100px;
+}
+
+
+.poi{
+  text-align: right;
+}
+.gm{
+  text-align: left;
+  padding: 1px;
+}
+
