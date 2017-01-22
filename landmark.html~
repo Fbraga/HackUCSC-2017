@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+ 
+<!-- If IE use the latest rendering engine -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 
+<!-- Set page width of the device and set zoon level -->
+<meta name="viewport" content="width = device-width, initial-scale = 1">
+<title>LandMark</title>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="./style.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- JavaScript-->
+ 
+
+ 
+</head>
+<body>
+ 
+<!-- CONTAINERS -->
+<div class="container">
+ 
+<!-- page-header -->
+<div class="page-header">
+<h1>YouSee: Santa Cruz</h1>
+</div>
+ 
+<div class="jumbotron ">
+<p>Look for Landmarks!</p>
+
+
+<div class="poi ">
+
+  <div class="list-group row pull-right">
+    <h2>Points of Interest</h2>
+    <a href="#" class="list-group-item " id="Add Coords" type="button" value="clickme" onclick="addMarker();">Add Coords</a>  
+    <a href="#" class="list-group-item " id="Squigly" type= "button" value="clickme" onclick = "httpGetAsync('http://www.Google.com', addMarker)">Squigly </a>
+    <a href="#" class="list-group-item ">Totem Pole</a>
+    <a href="#" class="list-group-item ">Swing Set</a>
+  </div>
+
+<div class="gm ">
+  <h2>Google Maps</h2>
+
+<div id="map" style="width:60%;height:500px"></div>
+
+<script src = "./script.js" type="text/javascript"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDigXoprJrv8HoKk3V49KZ175IbrC_KeyU&callback=myMap"
+    async defer></script>
+
+
+</body>
+</html>
