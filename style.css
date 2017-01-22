@@ -31,10 +31,5 @@ h2 {
 
 .list-group {
   overflow-y: auto;
-  max-height: 40vh;
-}
-
-.description-box {
-  overflow-y: auto;
-  max-height: 60vh;
+  max-height: 70vh;
 }
