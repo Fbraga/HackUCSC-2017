@@ -1,33 +1,38 @@
 var express = require('express')
-var app = express();
+var MongoClient = require('mongodb').MongoClient
+var assert = require('assert')
+var interact = require('./lib/mongointeract.js')
+var app = express()
 
-app.use(express.static('.'))
+MongoClient.connect('mongodb://loclahost:27017/myproject', function(err, db) {
+  assert.equal(null, err)
+  console.log("connect successful")
 
-app.get('/:lat/:lon/', function(req, res) {
-  var dummy = {
-    "name" : "foobar",
-    "lat" : parseInt(req.params["lat"]),
-    "lon" : parseInt(req.params["lon"]),
-    "rating" : 5
-  }
-  res.send(dummy)
-})
-// GET method route
-/*
-app.get('/', function (req, res) {
-    res.send('GET request to the homepage')
-})
-*/
-// POST method route
-app.post('/', function (req, res) {
-    res.send('POST request to the homepage')
-})
+  app.use(express.static('.'))
 
-app.get('/users/:userId/books/:bookId', function (req, res) {
-    res.send(req.params)
-})
-app.listen(3000, function() {
+  app.get('get_names', function(req, res) {
+    res.send(interact.get_names(db))
+  })
+
+  app.get('get/:name', function(req, res) {
+    res.send(interact.get(db, req))
+  })
+
+  app.get('add/:lat/:lon/:name/:description', function(req, res) {
+    interact.add(db, req)
+  })
+
+  app.get('debug/:lat/:lon/', function(req, res) {
+    var dummy = {
+      "name" : "foobar",
+      "lat" : parseFloat(req.params["lat"]),
+      "lon" : parseFloat(req.params["lon"]),
+      "rating" : 5
+    }
+    res.send(dummy)
+  })
+
+  app.listen(80, function() {
     console.log('Example app listening on port 3000!')
+  })
 })
-
-
