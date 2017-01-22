@@ -74,7 +74,7 @@ function httpGetAsync(theURL, callback) {
 }
 
 httpGetAsync('/get_names', function(ret_text) {
-  var name_array = JSON.parse(ret_text)
+  var name_array = JSON.parse(ret_text).sort()
   name_array.forEach(function(element) {
     var link = document.createElement("A")
     var text = document.createTextNode(element)
