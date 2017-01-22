@@ -1,5 +1,5 @@
 var map = null;
-
+//var marker = null;
 function myMap() {
   var myLatLng = new google.maps.LatLng(36.993287, -122.065120);
   var mapCanvas = document.getElementById("map");
@@ -15,24 +15,21 @@ function myMap() {
 }
 
  // Function for adding a marker to the page.
-function AddMarker(lat, lng) {           
+function AddMarker(lat, lng) { 
+  //marker.setMap(null);           
   var myLatLng = new google.maps.LatLng(lat, lng);
-  var marker = new google.maps.Marker({
+ /* marker = new google.maps.Marker({
     position: myLatLng,
     map: map,  
+  });*/
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    icon:"smile2.png"
   });
 }
-/*
-function clearMarker() {
-  setMap(null);
-}
-*/
-function test(){
-  //alert("tllo");
-  AddMarker();
-}
-
-
 function httpGetAsync(theURL, callback) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
