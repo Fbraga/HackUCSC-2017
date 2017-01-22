@@ -20,6 +20,13 @@ function addMarker() {
     //prompt("Add Latitude and Longitude Coords");
    
 }
+
+function test(){
+  alert("tllo");
+  // Testing the addMarker function
+}
+
+
 function httpGetAsync(theURL, callback) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
