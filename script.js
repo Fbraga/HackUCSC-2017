@@ -1,3 +1,5 @@
+var map = null;
+
 function myMap() {
   var myLatLng = new google.maps.LatLng(36.993287, -122.065120);
   var mapCanvas = document.getElementById("map");
@@ -5,7 +7,7 @@ function myMap() {
     center: new google.maps.LatLng(36.9914, -122.0609), 
     zoom: 14,
   }
-  var map = new google.maps.Map(document.getElementById('map'), {
+  map = new google.maps.Map(document.getElementById('map'), {
           zoom: 14,
           center: myLatLng
   });
@@ -24,7 +26,7 @@ function AddMarker() {
 
 
 function test(){
-  alert("tllo");
+  //alert("tllo");
   AddMarker();
 }
 
