@@ -14,8 +14,8 @@ function myMap() {
 }
 
  // Function for adding a marker to the page.
-function AddMarker() {           
-  var myLatLng = new google.maps.LatLng(36.993287, -122.065120);
+function AddMarker(lat, lng) {           
+  var myLatLng = new google.maps.LatLng(lat, lng);
   var marker = new google.maps.Marker({
     position: myLatLng,
     map: map,

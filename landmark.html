@@ -39,10 +39,13 @@
 
   <div class="list-group row pull-right">
     <h2>Points of Interest</h2>
-    <a href="#" class="list-group-item " id="Add Coords" type="button" value="clickme" onclick="addMarker();">Add Coords</a>  
-    <a href="#" class="list-group-item " id="Squigly" type= "button" value="clickme" onclick = "httpGetAsync('http://localhost:3000/5/5', addMarker)">Squigly </a>
-    <a href="#" class="list-group-item ">Totem Pole</a>
-    <a href="#" class="list-group-item ">Swing Set</a>
+    <a href="#" class="list-group-item" id="Add Place" type="button" value="clickme" onclick="AddMarker(0, 0);">+ Add Place</a>
+    <!--<button href="#" id="Add Coords" type="button" value="clickme" onclick="addMarker()" class ="list-gr
+	oup-item">Add Coords</button>-->  
+    <!--<a href="#" class="list-group-item " id="Squigly" type= "button" value="clickme" onclick = "httpGetAsync('http://localhost:3000/5/5', AddMarker)">Squigly </a>-->
+    <a href="#" class="list-group-item " id="Squigly" type="button" value="clickme" onclick ="AddMarker(36.993287, -122.065120);">Squigly</a>
+    <a href="#" class="list-group-item " id="Totem Pole" type="button" value="clickme" onclick ="AddMarker(36.994960, -122.065137);">Totem Pole</a>
+    <a href="#" class="list-group-item " id ="Garden of Eden" type="button" value="clickme" onclick ="AddMarker(37.024632, -122.057676);">Garden of Eden</a>
   </div>
 
 <div class="gm ">
@@ -52,6 +55,7 @@
 
 <button id="testBut" onclick="AddMarker()" class="btn btn-secondary btn-lg btn-block">test</button>
 
+<!--<button href="#" id="Add Coords" type="button" value="clickme" onclick="addMarker()" class ="list-group-item btn btn-secondary btn-lg btn-block" >Add Coords</button>-->  
 <script src = "./script.js" type="text/javascript"></script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDigXoprJrv8HoKk3V49KZ175IbrC_KeyU&callback=myMap"
