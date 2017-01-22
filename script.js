@@ -1,4 +1,3 @@
-
 function myMap() {
   var myLatLng = {lat: 36.9914, lng: -122.0609}
   var mapCanvas = document.getElementById("map");
@@ -18,6 +17,19 @@ function myMap() {
   });  
 }
 function addMarker() {
-    prompt("Add Latitude and Longitude Coords");
+    //prompt("Add Latitude and Longitude Coords");
+   
 }
-
+function httpGetAsync(theUrl, callback) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() {
+        console.log(xmlHttp.readyState);
+        console.log(xmlHttp.status); 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+            console.log(xmlHttp.responseText);
+            callback(xmlHttp.responseText);
+        }
+    }
+    xmlHttp.open("GET", theURL, true); // true for asynchronous 
+    xmlHttp.send(null);
+}
