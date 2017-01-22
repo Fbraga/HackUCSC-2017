@@ -58,9 +58,11 @@ function httpGetAsync(theURL, callback) {
         console.log(xmlHttp.readyState);
         console.log(xmlHttp.status); 
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+	    document.getElementByID("poi_sidebar");
             console.log(xmlHttp.responseText);
             callback(xmlHttp.responseText);
         }
+        else alert('Something is wrong !!');
     }
     xmlHttp.open("GET", theURL, true); // true for asynchronous 
     xmlHttp.send(null);
