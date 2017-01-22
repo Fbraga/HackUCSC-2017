@@ -16,23 +16,28 @@ function myMap() {
 }
 
  // Function for adding a marker to the page.
-function AddMarker(lat, lng) { 
-  //marker.setMap(null);           
-  var myLatLng = new google.maps.LatLng(lat, lng);
+function AddMarker(name) { 
+  httpGetAsync("/get/".concat(name), function(ret_text) {
+    var coord_obj = JSON.parse(ret_text)
+    var lat = coord_obj.lat
+    var lng = coord_obj.lon
+    //marker.setMap(null);           
+    var myLatLng = new google.maps.LatLng(lat, lng);
  /* marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,  
-  });*/
+      position: myLatLng,
+      map: map,  
+    });*/
   
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    draggable: false,
-    animation: google.maps.Animation.DROP,
-    icon:"smile2.png"
-  });
-  
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      draggable: false,
+      animation: google.maps.Animation.DROP,
+      icon:"smile2.png"
+    });
+  })
 }
+
 function AddMarkerPersonal(lat, lng) { 
   //marker.setMap(null);           
  // var myLatLng = new google.maps.LatLng(lat, lng);
@@ -67,3 +72,21 @@ function httpGetAsync(theURL, callback) {
     xmlHttp.open("GET", theURL, true); // true for asynchronous 
     xmlHttp.send(null);
 }
+
+httpGetAsync('/get_names', function(ret_text) {
+  var name_array = JSON.parse(ret_text)
+  name_array.forEach(function(element) {
+    var link = document.createElement("A")
+    var text = document.createTextNode(element)
+    var fetchlink = "localhost/get/"
+    link.appendChild(text)
+    link.setAttribute("href", "#/")
+    link.setAttribute("class", "list-group-item ")
+    link.setAttribute("id", element)
+    link.setAttribute("type", "button")
+    link.setAttribute("value", "clickme")
+    link.setAttribute("onclick", "AddMarker(\"".concat(element).concat("\");"))
+    //link.setAttribute("onclick", "httpGetAsync(fetchlink.concat(element), function(result) 
+    document.getElementById("poi_sidebar").appendChild(link)
+  })
+})
