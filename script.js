@@ -20,7 +20,7 @@ function addMarker() {
     //prompt("Add Latitude and Longitude Coords");
    
 }
-function httpGetAsync(theUrl, callback) {
+function httpGetAsync(theURL, callback) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
         console.log(xmlHttp.readyState);
