@@ -1,5 +1,4 @@
 function myMap() {
-  var myLatLng = {lat: 36.9914, lng: -122.0609}
   var mapCanvas = document.getElementById("map");
   var mapOptions = {
     center: new google.maps.LatLng(36.9914, -122.0609), 
@@ -9,21 +8,23 @@ function myMap() {
           zoom: 14,
           center: myLatLng
   });
+}
 
+ // Function for adding a marker to the page.
+function AddMarker() {           
+  var myLatlng = new google.maps.LatLng(36.993287, -122.065120);
   var marker = new google.maps.Marker({
-          position: myLatLng,
-          map: map,
-          title: 'Hello World!'
-  });  
+    position: myLatlng,
+    map: map,
+    
+  });
 }
-function addMarker() {
-    //prompt("Add Latitude and Longitude Coords");
-   
-}
+
+
 
 function test(){
   alert("tllo");
-  // Testing the addMarker function
+  AddMarker();
 }
 
 
