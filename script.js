@@ -57,12 +57,12 @@ function AddMarkerPersonal() {
     animation: google.maps.Animation.DROP,
     icon:"heart.png"
   });
-  document.getElementById("Add Place").setAttribute("onclick", "confirmPlace(\"".concat(name).concat("\", \"").concat(description).concat("\");"))
+  document.getElementById("Add Place").setAttribute("onclick", "confirmPlace(\"".concat(name).concat("\");"))
   document.getElementById("Add Place").innerHTML = "Save Place"
 }
 
-function confirmPlace(name, description) {
-  httpGetAsync("/add/".concat(add_marker.getPosition().lat()).concat("/").concat(add_marker.getPosition().lng()).concat("/").concat(name).concat("/").concat(description).concat("/"), function() {
+function confirmPlace(name) {
+  httpGetAsync("/add/".concat(add_marker.getPosition().lat()).concat("/").concat(add_marker.getPosition().lng()).concat("/").concat(name).concat("/"), function() {
     updateList();
     add_marker.setMap(null);
     add_marker = null;
