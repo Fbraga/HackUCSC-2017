@@ -1,10 +1,12 @@
 var map = null;
+var lat = 36.993287;
+var lng = -122.065120;
 //var marker = null;
-function myMap() {
+function myMap(lat, lng) {
   var myLatLng = new google.maps.LatLng(36.993287, -122.065120);
   var mapCanvas = document.getElementById("map");
   var mapOptions = {
-    center: new google.maps.LatLng(36.9914, -122.0609), 
+    center: new google.maps.LatLng(lat, lng), 
     zoom: 14,
   }
   map = new google.maps.Map(document.getElementById('map'), {
@@ -16,7 +18,8 @@ function myMap() {
 
  // Function for adding a marker to the page.
 function AddMarker(lat, lng) { 
-  //marker.setMap(null);           
+  //marker.setMap(null);          
+   myMap(lat, lng);
   var myLatLng = new google.maps.LatLng(lat, lng);
  /* marker = new google.maps.Marker({
     position: myLatLng,
@@ -25,7 +28,7 @@ function AddMarker(lat, lng) {
   var marker = new google.maps.Marker({
     position: myLatLng,
     map: map,
-    draggable: true,
+    draggable: false,
     animation: google.maps.Animation.DROP,
     icon:"smile2.png"
   });
