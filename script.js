@@ -38,16 +38,19 @@ function AddMarker(name) {
   })
 }
 
-function AddMarkerPersonal(lat, lng) { 
+function AddMarkerPersonal() { 
+   var name = prompt("Enter name of location");
+   var lat = prompt("Enter latitude coordinate");
+   var lon = prompt("Enter longitude coordinate");
+   var description = prompt("Enter short description");
   //marker.setMap(null);           
  // var myLatLng = new google.maps.LatLng(lat, lng);
  /* marker = new google.maps.Marker({
     position: myLatLng,
     map: map,  
   });*/
-  
   var marker = new google.maps.Marker({
-    position: map.getCenter(),
+    position: new google.maps.LatLng(lat, lon),
     map: map,
     draggable: true,
     animation: google.maps.Animation.DROP,
