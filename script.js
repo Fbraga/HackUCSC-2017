@@ -1,9 +1,10 @@
 var map = null;
 var lat = 36.993287;
 var lng = -122.065120;
+var myLatLng = new google.maps.LatLng(36.993287, -122.065120);
 //var marker = null;
 function myMap(lat, lng) {
-  var myLatLng = new google.maps.LatLng(36.993287, -122.065120);
+  myLatLng = new google.maps.LatLng(lat, lng);
   var mapCanvas = document.getElementById("map");
   var mapOptions = {
     center: new google.maps.LatLng(lat, lng), 
