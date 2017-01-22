@@ -11,15 +11,21 @@ MongoClient.connect('mongodb://localhost:27017/myproject', function(err, db) {
   app.use(express.static('.'))
 
   app.get('/get_names', function(req, res) {
-    res.send(interact.get_names(db))
+    interact.get_names(function(results) {
+      res.send(results)
+    })
   })
 
   app.get('/get/:name', function(req, res) {
-    res.send(interact.get(db, req))
+    interact.get(req.params["name"], function(results) {
+      res.send(results)
+    })
   })
 
   app.get('/add/:lat/:lon/:name/:description', function(req, res) {
-    interact.add(db, req)
+    interact.add(req, function() {
+      res.send("OK!")
+    })
   })
 
   app.get('/debug/:lat/:lon/', function(req, res) {
