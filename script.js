@@ -39,13 +39,13 @@ function AddMarker(name) {
 }
 
 function AddMarkerPersonal() { 
-   var name = prompt("Enter name of location");
-   var lat = prompt("Enter latitude coordinate");
-   var lon = prompt("Enter longitude coordinate");
-   var description = prompt("Enter short description");
+  var name = prompt("Enter name of location");
+  var lat = prompt("Enter latitude coordinate");
+  var lon = prompt("Enter longitude coordinate");
+  var description = prompt("Enter short description");
   //marker.setMap(null);           
- // var myLatLng = new google.maps.LatLng(lat, lng);
- /* marker = new google.maps.Marker({
+  // var myLatLng = new google.maps.LatLng(lat, lng);
+  /* marker = new google.maps.Marker({
     position: myLatLng,
     map: map,  
   });*/
@@ -56,7 +56,9 @@ function AddMarkerPersonal() {
     animation: google.maps.Animation.DROP,
     icon:"heart.png"
   });
-  
+  httpGetAsync("/add/".concat(lat).concat("/").concat(lon).concat("/").concat(name).concat("/").concat(description).concat("/"), function() {
+  })
+  updateList()
 }
 
 
@@ -76,20 +78,38 @@ function httpGetAsync(theURL, callback) {
     xmlHttp.send(null);
 }
 
-httpGetAsync('/get_names', function(ret_text) {
-  var name_array = JSON.parse(ret_text).sort()
-  name_array.forEach(function(element) {
-    var link = document.createElement("A")
-    var text = document.createTextNode(element)
+function updateList() {
+  httpGetAsync('/get_names', function(ret_text) {
+    var head = document.createElement("h2")
+    head.innerHTML = "Points of Interest"
+    document.getElementById("poi_sidebar").innerHTML = ''
+    document.getElementById("poi_sidebar").appendChild(head)
+    var top_link = document.createElement("A")
+    var top_text = document.createTextNode("+ Add Place")
     var fetchlink = "localhost/get/"
-    link.appendChild(text)
-    link.setAttribute("href", "#/")
-    link.setAttribute("class", "list-group-item ")
-    link.setAttribute("id", element)
-    link.setAttribute("type", "button")
-    link.setAttribute("value", "clickme")
-    link.setAttribute("onclick", "AddMarker(\"".concat(element).concat("\");"))
-    //link.setAttribute("onclick", "httpGetAsync(fetchlink.concat(element), function(result) 
-    document.getElementById("poi_sidebar").appendChild(link)
+    top_link.appendChild(top_text)
+    top_link.setAttribute("href", "#/")
+    top_link.setAttribute("class", "list-group-item ")
+    top_link.setAttribute("id", "Add Place")
+    top_link.setAttribute("type", "button")
+    top_link.setAttribute("value", "clickme")
+    top_link.setAttribute("onclick", "AddMarkerPersonal();")
+    document.getElementById("poi_sidebar").appendChild(top_link)
+    var name_array = JSON.parse(ret_text).sort()
+    name_array.forEach(function(element) {
+      var link = document.createElement("A")
+      var text = document.createTextNode(element)
+      var fetchlink = "localhost/get/"
+      link.appendChild(text)
+      link.setAttribute("href", "#/")
+      link.setAttribute("class", "list-group-item ")
+      link.setAttribute("id", element)
+      link.setAttribute("type", "button")
+      link.setAttribute("value", "clickme")
+      link.setAttribute("onclick", "AddMarker(\"".concat(element).concat("\");"))
+      document.getElementById("poi_sidebar").appendChild(link)
+    })
   })
-})
+}
+
+updateList()
