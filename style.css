@@ -1,7 +1,7 @@
-
 .page-header{
 
 }
+
 .jumbotron{
     background-color:#ffdf00;
     color:black;
@@ -17,3 +17,7 @@
   padding: 1px;
 }
 
+.list-group {
+  overflow-y: auto;
+  max-height: 40vh;
+}
