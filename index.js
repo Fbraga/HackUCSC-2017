@@ -22,7 +22,7 @@ MongoClient.connect('mongodb://localhost:27017/myproject', function(err, db) {
     })
   })
 
-  app.get('/add/:lat/:lon/:name/:description', function(req, res) {
+  app.get('/add/:lat/:lon/:name', function(req, res) {
     interact.add(req, function() {
       res.send("OK!")
     })

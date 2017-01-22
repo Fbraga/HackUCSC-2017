@@ -43,7 +43,7 @@ function AddMarkerPersonal() {
   var name = prompt("Enter name of location");
   //var lat = prompt("Enter latitude coordinate");
   //var lon = prompt("Enter longitude coordinate");
-  var description = prompt("Enter short description");
+  //  var description = prompt("Enter short description");  DESCRIPTION
   //marker.setMap(null);           
   // var myLatLng = new google.maps.LatLng(lat, lng);
   /* marker = new google.maps.Marker({
