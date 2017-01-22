@@ -1,4 +1,5 @@
 function myMap() {
+  var myLatLng = new google.maps.LatLng(36.993287, -122.065120);
   var mapCanvas = document.getElementById("map");
   var mapOptions = {
     center: new google.maps.LatLng(36.9914, -122.0609), 
@@ -12,9 +13,9 @@ function myMap() {
 
  // Function for adding a marker to the page.
 function AddMarker() {           
-  var myLatlng = new google.maps.LatLng(36.993287, -122.065120);
+  var myLatLng = new google.maps.LatLng(36.993287, -122.065120);
   var marker = new google.maps.Marker({
-    position: myLatlng,
+    position: myLatLng,
     map: map,
     
   });
