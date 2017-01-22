@@ -1,17 +1,15 @@
 var map = null;
-var lat = 36.993287;
-var lng = -122.065120;
-var myLatLng = new google.maps.LatLng(36.993287, -122.065120);
+
 //var marker = null;
-function myMap(lat, lng) {
-  myLatLng = new google.maps.LatLng(lat, lng);
+function myMap() {
+  var myLatLng = new google.maps.LatLng(36.993287, -122.065120);
   var mapCanvas = document.getElementById("map");
   var mapOptions = {
-    center: new google.maps.LatLng(lat, lng), 
-    zoom: 14,
+    center: new google.maps.LatLng(36.9914, -122.0609), 
+    zoom: 13,
   }
   map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 14,
+          zoom: 13,
           center: myLatLng
   });
   
@@ -19,13 +17,13 @@ function myMap(lat, lng) {
 
  // Function for adding a marker to the page.
 function AddMarker(lat, lng) { 
-  //marker.setMap(null);          
-   myMap(lat, lng);
+  //marker.setMap(null);           
   var myLatLng = new google.maps.LatLng(lat, lng);
  /* marker = new google.maps.Marker({
     position: myLatLng,
     map: map,  
   });*/
+  
   var marker = new google.maps.Marker({
     position: myLatLng,
     map: map,
@@ -33,7 +31,27 @@ function AddMarker(lat, lng) {
     animation: google.maps.Animation.DROP,
     icon:"smile2.png"
   });
+  
 }
+function AddMarkerPersonal(lat, lng) { 
+  //marker.setMap(null);           
+ // var myLatLng = new google.maps.LatLng(lat, lng);
+ /* marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,  
+  });*/
+  
+  var marker = new google.maps.Marker({
+    position: map.getCenter(),
+    map: map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    icon:"heart.png"
+  });
+  
+}
+
+
 function httpGetAsync(theURL, callback) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
