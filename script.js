@@ -1,4 +1,5 @@
 var map = null;
+var add_marker = null;
 
 //var marker = null;
 function myMap() {
@@ -40,8 +41,8 @@ function AddMarker(name) {
 
 function AddMarkerPersonal() { 
   var name = prompt("Enter name of location");
-  var lat = prompt("Enter latitude coordinate");
-  var lon = prompt("Enter longitude coordinate");
+  //var lat = prompt("Enter latitude coordinate");
+  //var lon = prompt("Enter longitude coordinate");
   var description = prompt("Enter short description");
   //marker.setMap(null);           
   // var myLatLng = new google.maps.LatLng(lat, lng);
@@ -49,16 +50,23 @@ function AddMarkerPersonal() {
     position: myLatLng,
     map: map,  
   });*/
-  var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(lat, lon),
+  add_marker = new google.maps.Marker({
+    position: map.getCenter(),
     map: map,
     draggable: true,
     animation: google.maps.Animation.DROP,
     icon:"heart.png"
   });
-  httpGetAsync("/add/".concat(lat).concat("/").concat(lon).concat("/").concat(name).concat("/").concat(description).concat("/"), function() {
+  document.getElementById("Add Place").setAttribute("onclick", "confirmPlace(\"".concat(name).concat("\", \"").concat(description).concat("\");"))
+  document.getElementById("Add Place").innerHTML = "Save Place"
+}
+
+function confirmPlace(name, description) {
+  httpGetAsync("/add/".concat(add_marker.getPosition().lat()).concat("/").concat(add_marker.getPosition().lng()).concat("/").concat(name).concat("/").concat(description).concat("/"), function() {
+    updateList();
+    add_marker.setMap(null);
+    add_marker = null;
   })
-  updateList()
 }
 
 
