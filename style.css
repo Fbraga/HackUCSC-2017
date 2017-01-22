@@ -1,13 +1,25 @@
 .page-header{
+  margin-top: 0px;
+  margin-bottom: 10px;
+  padding-bottom: 0px;
 
+}
+h2 {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .jumbotron{
     background-color:#ffdf00;
     color:black;
-    max-height: 100px;
+    max-height: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
+.jumbotron p {
+  margin-bottom: 5px;
+}
 
 .poi{
   text-align: right;
@@ -20,4 +32,9 @@
 .list-group {
   overflow-y: auto;
   max-height: 40vh;
+}
+
+.description-box {
+  overflow-y: auto;
+  max-height: 60vh;
 }
