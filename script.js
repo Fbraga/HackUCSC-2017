@@ -11,6 +11,7 @@ function myMap() {
           zoom: 14,
           center: myLatLng
   });
+  
 }
 
  // Function for adding a marker to the page.
@@ -18,13 +19,14 @@ function AddMarker(lat, lng) {
   var myLatLng = new google.maps.LatLng(lat, lng);
   var marker = new google.maps.Marker({
     position: myLatLng,
-    map: map,
-    
+    map: map,  
   });
 }
-
-
-
+/*
+function clearMarker() {
+  setMap(null);
+}
+*/
 function test(){
   //alert("tllo");
   AddMarker();
